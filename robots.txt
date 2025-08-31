@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://seo-morocco.ma/sitemap.xml
+
+# SEO Morocco - Professional SEO Services
+# Main website: https://seo-morocco.ma
+# Contact: contact@seo-morocco.ma
+# Phone: +212 6 50 45 00 50
+
+# Allow all search engines to crawl
+Crawl-delay: 1
+
+# Block common bot traps
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.php$
+Disallow: /*.cgi$
