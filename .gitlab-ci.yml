@@ -1,0 +1,31 @@
+# GitLab CI/CD configuration for SEO Morocco
+# This file enables automatic deployment to GitLab Pages
+
+stages:
+  - deploy
+
+pages:
+  stage: deploy
+  script:
+    - mkdir public
+    - cp -r * public/ 2>/dev/null || true
+    - rm -f public/.gitlab-ci.yml 2>/dev/null || true
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+    - master
+  environment:
+    name: production
+    url: https://$CI_PROJECT_NAMESPACE.gitlab.io/$CI_PROJECT_NAME
+
+# Cache node_modules if using npm/yarn (optional)
+cache:
+  paths:
+    - node_modules/
+
+# Variables for GitLab Pages
+variables:
+  GIT_DEPTH: 1
+  FF_USE_FASTZIP: "true"
